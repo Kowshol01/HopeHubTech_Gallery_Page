@@ -58,6 +58,21 @@
         background-color: #065f46; /* green-800 */
         color: #a7f3d0; /* green-200 */
       }
+
+      .cta-pulse {
+        position: relative;
+        animation: pulse-glow 2.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+        }
+      }
     </style>
   </head>
 
@@ -321,7 +336,7 @@
         </h2>
         <a
           href="./index.html#partner-form"
-          class="mt-8 inline-block bg-green-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-500/30"
+          class="mt-8 cta-pulse inline-block bg-green-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-500/30"
         >
           Join as a Partner
         </a>
