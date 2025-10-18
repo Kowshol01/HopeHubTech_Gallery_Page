@@ -1,7 +1,9 @@
+// Initialize Animate on Scroll
 AOS.init({
   duration: 800,
   once: true,
 });
+// Initialize Feather Icons
 feather.replace();
 
 // --- Theme toggle functionality ---
@@ -43,51 +45,82 @@ function updateTheme() {
   }
 }
 
+// Set initial theme and listen for system changes
 updateTheme();
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", updateTheme);
 
-lucide.createIcons();
-// Initialize Lucide icons
-lucide.createIcons();
+// --- Gallery Functionality ---
+let lgInstance = null; // Will hold the lightGallery instance
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Gallery Filter Logic ---
   const filterContainer = document.getElementById("filter-buttons");
-  const galleryItems = document.querySelectorAll(
-    "#lightgallery > .gallery-item"
-  );
+  const gallery = document.getElementById("lightgallery");
 
+  // Function to apply filter and refresh gallery
+  function applyFilter(filterValue) {
+    const allItems = document.querySelectorAll("#lightgallery > .gallery-item");
+    allItems.forEach((item) => {
+      const itemCategory = item.dataset.category;
+      if (filterValue === "all" || itemCategory === filterValue) {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+
+    // Refresh the gallery instance to recognize the changes
+    if (lgInstance) {
+      // Use requestAnimationFrame to ensure DOM updates are rendered before refreshing
+      requestAnimationFrame(() => {
+        lgInstance.refresh();
+      });
+    }
+  }
+
+  // --- Gallery Filter Logic ---
   if (filterContainer) {
     filterContainer.addEventListener("click", (e) => {
       if (e.target.classList.contains("filter-btn")) {
-        // Handle active button state
         filterContainer.querySelector(".active").classList.remove("active");
         e.target.classList.add("active");
-
         const filterValue = e.target.dataset.filter;
-
-        galleryItems.forEach((item) => {
-          if (filterValue === "all" || item.dataset.category === filterValue) {
-            item.classList.remove("hidden");
-          } else {
-            item.classList.add("hidden");
-          }
-        });
+        applyFilter(filterValue);
       }
     });
   }
 
+  // --- Load More Logic ---
+  const loadMoreBtn = document.getElementById("load-more-btn");
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+      const extraItems = document.querySelectorAll(".extra-item");
+      extraItems.forEach((item) => {
+        // This makes them permanently part of the gallery
+        item.classList.remove("extra-item");
+      });
+      const activeFilterBtn = document.querySelector(
+        "#filter-buttons .filter-btn.active"
+      );
+      const activeFilterValue = activeFilterBtn
+        ? activeFilterBtn.dataset.filter
+        : "all";
+      applyFilter(activeFilterValue);
+
+      loadMoreBtn.style.display = "none"; // Hide button after clicking
+    });
+  }
+
   // --- LightGallery Initialization ---
-  const gallery = document.getElementById("lightgallery");
   if (gallery) {
-    lightGallery(gallery, {
+    lgInstance = lightGallery(gallery, {
       plugins: [lgZoom, lgThumbnail],
       licenseKey: "0000-0000-000-0000",
       speed: 500,
       download: false,
-      selector: ".gallery-item:not(.hidden)", // Tell LightGallery to only use visible items
+      // Only initialize LightGallery on visible items
+      selector: ".gallery-item:not(.hidden)",
     });
   }
 });
