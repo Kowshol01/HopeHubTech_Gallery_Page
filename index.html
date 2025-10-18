@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery | HopeHubTech</title>
+    <!-- Tailwind CSS for utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate On Scroll (AOS) library for animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Icon libraries -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <!-- LightGallery CSS -->
+    <!-- LightGallery CSS for the image lightbox -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css"
     />
     <style>
+      /* --- Custom Body Background --- */
       body {
         background-color: #f8fafc;
         background-image: radial-gradient(circle at top, #e2e8f0, #f8fafc 40%);
@@ -26,7 +30,7 @@
         background-image: radial-gradient(circle at top, #1e293b, #020617 40%);
       }
 
-      /* --- Gallery item hover effect --- */
+      /* --- Gallery Item Hover Effect --- */
       .gallery-item .overlay {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
@@ -59,6 +63,7 @@
         color: #a7f3d0; /* green-200 */
       }
 
+      /* --- CTA Button Pulse Animation --- */
       .cta-pulse {
         position: relative;
         animation: pulse-glow 2.5s ease-in-out infinite;
@@ -94,12 +99,12 @@
               <i
                 id="sun-icon"
                 data-feather="sun"
-                class="hidden w-5 h-5 text-gray-300"
+                class="hidden w-5 h-5 text-yellow-400"
               ></i>
               <i
                 id="moon-icon"
                 data-feather="moon"
-                class="w-5 h-5 text-gray-700"
+                class="w-5 h-5 text-gray-300"
               ></i>
             </button>
             <div
@@ -179,6 +184,12 @@
             </button>
             <button
               class="filter-btn px-4 py-2 text-sm font-semibold rounded-md"
+              data-filter="workshops"
+            >
+              Workshops
+            </button>
+            <button
+              class="filter-btn px-4 py-2 text-sm font-semibold rounded-md"
               data-filter="projects"
             >
               Projects
@@ -203,7 +214,7 @@
             data-aos="fade-up"
             data-aos-delay="100"
             data-sub-html="<h4>Hands-on Tech Workshop</h4><p>Date: October 15, 2025</p>"
-            data-category="events"
+            data-category="workshops"
           >
             <img
               src="https://placehold.co/600x400/10b981/ffffff?text=Tech+Workshop"
@@ -324,6 +335,231 @@
               <p class="text-sm">Engaging with the wider tech community.</p>
             </div>
           </a>
+          <!-- ADDED GALLERY ITEMS START HERE -->
+          <!-- Gallery Item 7 -->
+          <a
+            href="https://placehold.co/1200x800/f59e0b/ffffff?text=AI+Chatbot"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>AI Chatbot Development</h4><p>Project Completion: August 10, 2025</p>"
+            data-category="projects"
+          >
+            <img
+              src="https://placehold.co/600x400/f59e0b/ffffff?text=AI+Chatbot"
+              alt="AI Chatbot Development"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">AI Chatbot Development</h3>
+              <p class="text-sm">Building intelligent conversational agents.</p>
+            </div>
+          </a>
+          <!-- Gallery Item 8 -->
+          <a
+            href="https://placehold.co/1200x800/ef4444/ffffff?text=Team+Retreat"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Team Building Retreat</h4><p>Date: August 5, 2025</p>"
+            data-category="team"
+          >
+            <img
+              src="https://placehold.co/600x400/ef4444/ffffff?text=Team+Retreat"
+              alt="Team Building Retreat"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Team Building Retreat</h3>
+              <p class="text-sm">
+                Strengthening bonds and fostering collaboration.
+              </p>
+            </div>
+          </a>
+          <!-- Gallery Item 9 -->
+          <a
+            href="https://placehold.co/1200x800/84cc16/ffffff?text=Web3+Workshop"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Intro to Web3</h4><p>Date: July 30, 2025</p>"
+            data-category="workshops"
+          >
+            <img
+              src="https://placehold.co/600x400/84cc16/ffffff?text=Web3+Workshop"
+              alt="Web3 Workshop"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Intro to Web3</h3>
+              <p class="text-sm">
+                Exploring the future of the decentralized web.
+              </p>
+            </div>
+          </a>
+          <!-- Gallery Item 10 -->
+          <a
+            href="https://placehold.co/1200x800/14b8a6/ffffff?text=Tech+Gala"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Annual Tech Gala</h4><p>Date: July 25, 2025</p>"
+            data-category="events"
+          >
+            <img
+              src="https://placehold.co/600x400/14b8a6/ffffff?text=Tech+Gala"
+              alt="Annual Tech Gala"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Annual Tech Gala</h3>
+              <p class="text-sm">Celebrating a year of achievements.</p>
+            </div>
+          </a>
+          <!-- Gallery Item 11 -->
+          <a
+            href="https://placehold.co/1200x800/d946ef/ffffff?text=Mobile+App+UI"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Mobile App UI/UX Design</h4><p>Project Completion: July 18, 2025</p>"
+            data-category="projects"
+          >
+            <img
+              src="https://placehold.co/600x400/d946ef/ffffff?text=Mobile+App+UI"
+              alt="Mobile App UI/UX Design"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Mobile App UI/UX Design</h3>
+              <p class="text-sm">
+                Creating intuitive and beautiful user experiences.
+              </p>
+            </div>
+          </a>
+          <!-- Gallery Item 12 -->
+          <a
+            href="https://placehold.co/1200x800/0ea5e9/ffffff?text=Hackathon+Winners"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Hackathon Winners</h4><p>Date: July 12, 2025</p>"
+            data-category="team"
+          >
+            <img
+              src="https://placehold.co/600x400/0ea5e9/ffffff?text=Hackathon+Winners"
+              alt="Hackathon Winners"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Hackathon Winners</h3>
+              <p class="text-sm">
+                Celebrating the creativity and hard work of our team.
+              </p>
+            </div>
+          </a>
+          <!-- Gallery Item 13 -->
+          <a
+            href="https://placehold.co/1200x800/f43f5e/ffffff?text=Cybersecurity"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Cybersecurity Basics Workshop</h4><p>Date: June 28, 2025</p>"
+            data-category="workshops"
+          >
+            <img
+              src="https://placehold.co/600x400/f43f5e/ffffff?text=Cybersecurity"
+              alt="Cybersecurity Basics Workshop"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Cybersecurity Basics</h3>
+              <p class="text-sm">Protecting yourself in the digital world.</p>
+            </div>
+          </a>
+          <!-- Gallery Item 14 -->
+          <a
+            href="https://placehold.co/1200x800/6d28d9/ffffff?text=Career+Fair"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>University Career Fair</h4><p>Date: June 20, 2025</p>"
+            data-category="events"
+          >
+            <img
+              src="https://placehold.co/600x400/6d28d9/ffffff?text=Career+Fair"
+              alt="University Career Fair"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">University Career Fair</h3>
+              <p class="text-sm">
+                Connecting with the next generation of talent.
+              </p>
+            </div>
+          </a>
+          <!-- Gallery Item 15 -->
+          <a
+            href="https://placehold.co/1200x800/fb923c/ffffff?text=Data+Viz"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Data Visualization Dashboard</h4><p>Project Completion: June 15, 2025</p>"
+            data-category="projects"
+          >
+            <img
+              src="https://placehold.co/600x400/fb923c/ffffff?text=Data+Viz"
+              alt="Data Visualization Dashboard"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Data Viz Dashboard</h3>
+              <p class="text-sm">
+                Turning complex data into beautiful insights.
+              </p>
+            </div>
+          </a>
+          <!-- Gallery Item 16 -->
+          <a
+            href="https://placehold.co/1200x800/4f46e5/ffffff?text=Cloud+Computing"
+            class="gallery-item group relative block bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hidden extra-item"
+            data-aos="fade-up"
+            data-sub-html="<h4>Cloud Computing Seminar</h4><p>Date: June 5, 2025</p>"
+            data-category="workshops"
+          >
+            <img
+              src="https://placehold.co/600x400/4f46e5/ffffff?text=Cloud+Computing"
+              alt="Cloud Computing Seminar"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 text-white"
+            >
+              <h3 class="font-bold text-xl mb-1">Cloud Computing Seminar</h3>
+              <p class="text-sm">
+                Leveraging the power of the cloud for scalability.
+              </p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12" data-aos="fade-up">
+          <button
+            id="load-more-btn"
+            class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-600 dark:hover:bg-green-700 transition-colors duration-300"
+          >
+            Load More
+          </button>
         </div>
       </div>
     </div>
@@ -351,6 +587,7 @@
     <script src="script.js"></script>
 
     <script>
+      // Minimal Tailwind config for dark mode
       tailwind.config = {
         darkMode: "class",
         theme: {},
